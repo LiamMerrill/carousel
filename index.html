@@ -51,7 +51,7 @@
 					});
 		});
 		$( window ).resize(function() {
-  $( '.container' ).append( "<div>Handler for .resize() called.</div>" );
+  $( '.container' ).prepend( "<div>" + $( window ).width() + "</div>" );
 });
 		</script>
 
