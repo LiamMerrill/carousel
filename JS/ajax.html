@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		
+	</head>
+
+	<body>
+	<div> <a href= "JSON.js">AJAX Exercise</a></div>
+	</body>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	$.ajax({
+		dataType:'json',
+		url:"http://mlouttit.com/cuny/js/portfolio.js"
+		success:function(data){
+			console.log(data.portfolio);
+			$.each(data.portfolio,
+				function(index,item){
+					var title = '<h2><a href="'+item.url+'"">
+					'+item.title+'</a></h2>';
+					var date = '<span>'+item.pubDate+'</span>';
+					vavr img = '<img src="'+item.image+'">';
+
+
+					$('#portfolio').append('<h2>'+item.title+'</h2><img src="'+item.image+'">');
+				})
+		}
+	});
+	/*$.getJSON("http://mlouttit.com/cuny/js/portfolio.js", function(data){
+		console.log(data);*/
+	});
+});
